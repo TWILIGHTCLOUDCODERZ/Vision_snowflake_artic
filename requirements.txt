@@ -5,6 +5,8 @@ transformers==4.41.0
 matplotlib==3.9.0
 fpdf==1.7.2
 seaborn==0.13.2
+portaudio==19.6.0
 SpeechRecognition==3.10.4
 openpyxl==3.1.2
-pyaudio==0.2.14
+pyaudio==0.2.11
+portaudio==19.6.0
