@@ -7,3 +7,5 @@ fpdf==1.7.2
 seaborn==0.13.2
 SpeechRecognition==3.10.4
 openpyxl==3.1.2
+portaudio19
+python3
