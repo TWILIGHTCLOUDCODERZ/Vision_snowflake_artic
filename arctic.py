@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 from fpdf import FPDF
 import base64
 import seaborn as sns
-import speech_recognition as sr
 
 # App title
 st.set_page_config(page_title="Arctic-Vision")
@@ -20,7 +19,6 @@ def main():
     init_chat_history()
     display_chat_messages()
     handle_file_upload()
-    handle_speech_input()
     get_and_process_prompt()
 
 def get_replicate_api_token():
@@ -32,7 +30,6 @@ def display_sidebar_ui():
         st.slider('temperature', min_value=0.01, max_value=5.0, value=0.3, step=0.01, key="temperature")
         st.slider('top_p', min_value=0.01, max_value=1.0, value=0.9, step=0.01, key="top_p")
         st.button('Clear chat history', on_click=clear_chat_history)
-        st.button("Voice Input", on_click=recognize_speech)
 
 def clear_chat_history():
     st.session_state.messages = [{"role": "assistant", "content": "Hi. I'm Vision, a new, efficient, intelligent, and truly open language model created by Snowflake AI Research. Ask me anything."}]
@@ -217,26 +214,6 @@ def download_pdf(content, chart_paths):
     b64 = base64.b64encode(pdf).decode('latin1')
     href = f'<a href="data:application/octet-stream;base64,{b64}" download="results.pdf">Download PDF</a>'
     st.sidebar.markdown(href, unsafe_allow_html=True)
-
-def recognize_speech():
-    recognizer = sr.Recognizer()
-    with sr.Microphone() as source:
-        st.info("Listening...")
-        audio = recognizer.listen(source)
-    try:
-        text = recognizer.recognize_google(audio)
-        st.session_state.messages.append({"role": "user", "content": text})
-        with st.chat_message("user", avatar="⛷️"):
-            st.write(text)
-        st.experimental_rerun()
-    except sr.UnknownValueError:
-        st.error("Could not understand the audio")
-    except sr.RequestError as e:
-        st.error(f"Could not request results; {e}")
-
-def handle_speech_input():
-    if "speech_input" not in st.session_state:
-        st.session_state.speech_input = ""
 
 if __name__ == "__main__":
     main()
