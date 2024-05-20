@@ -1,0 +1,8 @@
+streamlit
+replicate
+pandas
+transformers
+matplotlib
+fpdf
+seaborn
+speech_recognition
