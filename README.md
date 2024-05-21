@@ -1,6 +1,8 @@
 # Vision_snowflake_artic
 Built for "THE FUTURE OF AI IS OPEN " Snowflake Arctic hackathon
 
+# Vision_snowflake_artic
+
 Introducing Vision, the cutting-edge marvel from Snowflake AI Research. Built for the future of AI and hosted in Streamlit, Vision is an interactive application tailored for the retail industry. With Vision, retailers can easily analyze product performance based on ratings, sales units, and review counts. It offers essential insights for inventory management, guiding businesses in restocking decisions and discontinuing underperforming products. Vision also excels in feedback analysis by evaluating product ratings and reviews, helping companies enhance customer satisfaction and identify areas for improvement. Furthermore, Vision identifies trends in customer preferences, keeping businesses ahead of market demands. Let Vision be your guide to smarter retail strategies and enhanced business growth.
 
 [![Check the Video Demo](https://img.shields.io/badge/Video-Demo-blue?style=for-the-badge&logo=youtube)](https://youtu.be/JTpjkk2lNJ8)
@@ -35,13 +37,11 @@ Then, run these commands:
 
 `pip install`
 
-## Environment Variables
+## configure Streamlit project using a config.toml
 
-Set up the following environment variables to configure our project correctly:
+create a .streamlit directory in the root of your project :
 
-### Adding Environment Variables
-
-Add these variables to a `.toml` file located in the root of our project.
+Open the .streamlit/config.toml file in a text editor and add the necessary environment variables. For instance, to add the REPLICATE_API_TOKEN
 
 REPLICATE_API_TOKEN = "xxxxxx"
 
@@ -50,7 +50,7 @@ store in streamlit follow doc-https://docs.streamlit.io/develop/api-reference/co
 ## Run-Build
 To start the application run the command 
 `streamlit run arctic.py`
-This will start the application on . Navigate to this URL in the web browser to access the app
+This will start the application on http://localhost:8501/. Navigate to this URL in the web browser to access the app
 To deploy the application in streamlit follow doc - https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app
 
 &nbsp;
@@ -136,6 +136,7 @@ Detecting anomalies or potential issues in product performance that may require 
 
 &nbsp;
 
+![image](https://github.com/TWILIGHTCLOUDCODERZ/Vision_snowflake_artic/assets/101945531/2964deaf-a651-4c13-a9b9-e0369aa418bd)
 
 ## License
 
