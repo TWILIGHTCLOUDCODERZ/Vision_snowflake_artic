@@ -77,7 +77,14 @@ def get_and_process_prompt():
     if st.session_state.messages[-1]["role"] != "assistant":
         with st.chat_message("assistant", avatar="./Snowflake_Logomark_blue.svg"):
             response = generate_arctic_response()
-            st.write_stream(response)
+            response_content = "".join([event for event in response])
+            st.write(response_content)
+            st.session_state.messages[-1]["content"] = response_content
+            # Generate and download the PDF
+            pdf = generate_pdf(response_content)
+            b64 = base64.b64encode(pdf).decode('latin1')
+            href = f'<a href="data:application/octet-stream;base64,{b64}" download="response.pdf">Download response as PDF</a>'
+            st.markdown(href, unsafe_allow_html=True)
 
     if st.session_state.chat_aborted:
         st.button('Reset chat', on_click=clear_chat_history, key="clear_chat_history")
@@ -197,19 +204,20 @@ def visualize_data(df):
 
     return chart_paths
 
-def generate_pdf(content, chart_paths):
+def generate_pdf(content, chart_paths=None):
     pdf = FPDF()
     pdf.add_page()
     pdf.set_font("Arial", size=12)
     pdf.multi_cell(200, 10, content)
     
-    for chart_path in chart_paths:
-        pdf.add_page()
-        pdf.image(chart_path, x=10, y=10, w=190)
+    if chart_paths:
+        for chart_path in chart_paths:
+            pdf.add_page()
+            pdf.image(chart_path, x=10, y=10, w=190)
     
     return pdf.output(dest="S").encode("latin1")
 
-def download_pdf(content, chart_paths):
+def download_pdf(content, chart_paths=None):
     pdf = generate_pdf(content, chart_paths)
     b64 = base64.b64encode(pdf).decode('latin1')
     href = f'<a href="data:application/octet-stream;base64,{b64}" download="results.pdf">Download PDF</a>'
