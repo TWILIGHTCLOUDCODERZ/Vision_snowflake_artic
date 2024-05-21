@@ -1,8 +1,6 @@
 # Vision_snowflake_artic
 Built for "THE FUTURE OF AI IS OPEN " Snowflake Arctic hackathon
 
-# Vision_snowflake_artic
-
 Introducing Vision, the cutting-edge marvel from Snowflake AI Research. Built for the future of AI and hosted in Streamlit, Vision is an interactive application tailored for the retail industry. With Vision, retailers can easily analyze product performance based on ratings, sales units, and review counts. It offers essential insights for inventory management, guiding businesses in restocking decisions and discontinuing underperforming products. Vision also excels in feedback analysis by evaluating product ratings and reviews, helping companies enhance customer satisfaction and identify areas for improvement. Furthermore, Vision identifies trends in customer preferences, keeping businesses ahead of market demands. Let Vision be your guide to smarter retail strategies and enhanced business growth.
 
 [![Check the Video Demo](https://img.shields.io/badge/Video-Demo-blue?style=for-the-badge&logo=youtube)](https://youtu.be/JTpjkk2lNJ8)
