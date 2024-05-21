@@ -53,9 +53,6 @@ To start the application run the command
 This will start the application on http://localhost:8501/. Navigate to this URL in the web browser to access the app
 To deploy the application in streamlit follow doc - https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app
 
-&nbsp;
-
-![image](https://github.com/TWILIGHTCLOUDCODERZ/Vision_snowflake_artic/assets/101945531/37052dfe-2fa1-4d8a-99ac-6843a4c4c25e)
 
 ## Features
 
