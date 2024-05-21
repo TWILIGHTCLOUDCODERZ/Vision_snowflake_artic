@@ -9,8 +9,30 @@ from fpdf import FPDF
 import base64
 import seaborn as sns
 
-# App title
+# App title and initial configuration
 st.set_page_config(page_title="Arctic-Vision")
+
+# Set custom CSS for the app
+st.markdown("""
+    <style>
+        .main {background-color: #f0f2f6;}
+        .stSidebar {background-color: #ffffff;}
+        .stButton button {background-color: #4CAF50; color: white; border-radius: 5px;}
+        .stButton button:hover {background-color: #45a049;}
+        .stSlider > div {color: #4CAF50;}
+        .stFileUploader label {color: #4CAF50;}
+        .stMarkdown a {color: #4CAF50;}
+        .stMarkdown a:hover {color: #3e8e41;}
+        .stTextInput > div > div {border: 1px solid #4CAF50;}
+        .stTextInput input {color: #4CAF50; padding: 10px; width: 100%;}
+        .stHeader {color: #4CAF50;}
+        .stSubheader {color: #4CAF50;}
+        .stTextArea textarea {padding: 10px; width: 100%;}
+        .stTextInput {display: flex; align-items: center; justify-content: center; width: 100%;}
+        .stTextInput div {flex-grow: 1; display: flex; align-items: center; justify-content: center;}
+        .css-1kyxreq {display: flex; align-items: center; justify-content: center;}
+    </style>
+""", unsafe_allow_html=True)
 
 def main():
     """Execution starts here."""
@@ -32,7 +54,7 @@ def display_sidebar_ui():
         st.button('Clear chat history', on_click=clear_chat_history)
 
 def clear_chat_history():
-    st.session_state.messages = [{"role": "assistant", "content": "Hi. I'm Vision, a new, efficient, intelligent, and truly open language model created by Snowflake AI Research. Ask me anything."}]
+    st.session_state.messages = [{"role": "assistant", "content": "Hello there! I'm Vision, the sleek new creation from Snowflake AI Research. Ready for an adventure in knowledge? Fire away with your questions!"}]
     st.session_state.chat_aborted = False
 
 def init_chat_history():
@@ -42,7 +64,7 @@ def init_chat_history():
 
 def display_chat_messages():
     # Set assistant icon to Snowflake logo
-    icons = {"assistant": "./Snowflake_Logomark_blue.svg", "user": "⛷️"}
+    icons = {"assistant": "./Snowflake_Logomark_blue.svg", "user": "🦊"}
 
     # Display the messages
     for message in st.session_state.messages:
